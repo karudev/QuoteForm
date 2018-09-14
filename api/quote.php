@@ -10,9 +10,13 @@ require __DIR__.'/config.php';
 
 
 $quote = new Quote($prices);
-$quote->setProjectType('extranet');
+
+$quote->setWebDesign(false);
+
+$quote->setNumberOfPages(5);
+$quote->setProjectType('site web');
 
 echo 'type de projet :'.$quote->getProjectType();
 echo'<br>';
-echo 'estimation : '.$quote->calculPrice(true);
+echo 'estimation : '.$quote->calculPrice();
 echo '<br>';

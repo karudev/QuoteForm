@@ -53,7 +53,7 @@ class Quote
         $this->pricePage = $prices['page'];
         $this->priceWebDesign = $prices['webDesign'];
         $this->priceModule = $prices['module'];
-        $this->priceSiteWeb = $prices['projectType']['site web '];
+        $this->priceSiteWeb = $prices['projectType']['site web'];
         $this->priceExtranet = $prices['projectType']['extranet'];
         $this->priceEcommerce = $prices['projectType']['ecommerce'];
     }
@@ -269,24 +269,26 @@ class Quote
     }
 
 
-    public function calculPrice($webDesign)
+    public function calculPrice()
 
     {
-        if ($webDesign == true) {
+
+        if ($this->projectType == 'site web') {
+            $this->estimation = $this->estimation + $this->priceSiteWeb;
+        } elseif ($this->projectType == 'extranet') {
+            $this->estimation = $this->estimation + $this->priceExtranet;
+        } elseif ($this->projectType == 'ecommerce') {
+            $this->estimation = $this->estimation + $this->priceEcommerce;
+        }
+        if ($this->webDesign == true) {
             $this->estimation = $this->estimation + $this->priceWebDesign;
-
-
-            if ($this->projectType == 'site web') {
-                $this->estimation = $this->estimation + $this->priceSiteWeb;
-            } elseif ($this->projectType == 'extranet') {
-                $this->estimation = $this->estimation + $this->priceExtranet;
-            } elseif ($this->projectType == 'ecommerce') {
-                $this->estimation = $this->estimation + $this->priceEcommerce;
-            }
-
         }
 
-            return $this->estimation;
+        if ($this->numberOfPages > 0) {
+            $this->estimation = $this->estimation + ($this->numberOfPages * $this->pricePage);
+        }
+
+        return $this->estimation;
 
     }
 }

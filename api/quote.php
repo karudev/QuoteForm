@@ -14,5 +14,5 @@ $quote->setProjectType('extranet');
 
 echo 'type de projet :'.$quote->getProjectType();
 echo'<br>';
-echo 'estimation : '.$quote->calculPrice(false);
+echo 'estimation : '.$quote->calculPrice(true);
 echo '<br>';

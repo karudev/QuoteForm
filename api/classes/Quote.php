@@ -11,27 +11,27 @@ class Quote
 
 {
 
-private $projectType;
+    private $projectType;
 
-private $webDesign;
+    private $webDesign;
 
-private $numberOfPages;
+    private $numberOfPages;
 
-private $numberOfModules;
+    private $numberOfModules;
 
-private $websiteHosting;
+    private $websiteHosting;
 
-private $attendanceStatistic;
+    private $attendanceStatistic;
 
-private $referencingModule;
+    private $referencingModule;
 
-private $contactForm;
+    private $contactForm;
 
-private $companyName;
+    private $companyName;
 
-private $mobile;
+    private $mobile;
 
-private $email;
+    private $email;
 
     private $pricePage;
 
@@ -285,9 +285,8 @@ private $email;
             }
 
         }
-        else {
 
             return $this->estimation;
-        }
+
     }
 }

@@ -59,21 +59,20 @@ class QuoteForm extends React.Component {
 
     showEmailHandler = () => {
         console.log('le button a ete clique');
-        // const style = {
-        //     display: 'block',
-        // };
-        // return
-        // this.style.display;
-        this.setState({
-            div1Shown: true,
-        });
+        return
+        (<div>
+           Hi
+        </div>);
 
-    }
+    };
 
 
     render() {
         const style = {
             display: 'none',
+        };
+        const style1 = {
+                 display: 'block'
         };
 
         return (<div className="App">
@@ -133,21 +132,8 @@ class QuoteForm extends React.Component {
 
             </fieldset>
 
-            <form className="div1Shown">
-                <div style={style}>
-                    <label>
-                        Nom/Compagnie:
-                        <input type="text" name="companyName"/>
-                    </label>
-                    <label>
-                        Tel:
-                        <input type="text" name="mobile"/>
-                    </label>
-                    <label>
-                        Email:
-                        <input type="email" name="email"/>
-                    </label>
-                </div>
+            <form >
+
                 <button onClick={this.showEmailHandler}>Envoyez</button>
             </form>
 
@@ -161,3 +147,4 @@ ReactDOM.render(<QuoteForm/>, document.getElementById('root'));
 
 
 //style={{display: this.state.div1Shown ? 'block' : 'none' }}
+//style={style}

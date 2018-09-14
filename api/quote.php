@@ -1,5 +1,6 @@
 <?php
 require __DIR__.'/classes/Quote.php';
+require __DIR__.'/config.php';
 /**
  * Created by PhpStorm.
  * User: Utilisateur
@@ -8,9 +9,10 @@ require __DIR__.'/classes/Quote.php';
  */
 
 
-$quote = new Quote();
-$quote->setProjectType('karudev');
-$quote->setNumberOfpages(10);
+$quote = new Quote($prices);
+$quote->setProjectType('extranet');
 
-echo 'test';
-echo $quote->getProjectType();
+echo 'type de projet :'.$quote->getProjectType();
+echo'<br>';
+echo 'estimation : '.$quote->calculPrice(false);
+echo '<br>';

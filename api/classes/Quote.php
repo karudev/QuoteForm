@@ -5,33 +5,58 @@
  * Date: 14/09/2018
  * Time: 13:30
  */
+require '/var/www/html/api/config.php';
 
 class Quote
 
 {
 
-private $projectType;
+    private $projectType;
 
-private $webDesign;
+    private $webDesign;
 
-private $numberOfPages;
+    private $numberOfPages;
 
-private $numberOfModules;
+    private $numberOfModules;
 
-private $websiteHosting;
+    private $websiteHosting;
 
-private $attendanceStatistic;
+    private $attendanceStatistic;
 
-private $referencingModule;
+    private $referencingModule;
 
-private $contactForm;
+    private $contactForm;
 
-private $companyName;
+    private $companyName;
 
-private $mobile;
+    private $mobile;
 
-private $email;
+    private $email;
 
+    private $pricePage;
+
+    private $priceWebDesign;
+
+    private $priceModule;
+
+    private $priceSiteWeb;
+
+    private $priceExtranet;
+
+    private $priceEcommerce;
+
+    private $estimation;
+
+
+    public function Quote($prices)
+    {
+        $this->pricePage = $prices['page'];
+        $this->priceWebDesign = $prices['webDesign'];
+        $this->priceModule = $prices['module'];
+        $this->priceSiteWeb = $prices['projectType']['site web '];
+        $this->priceExtranet = $prices['projectType']['extranet'];
+        $this->priceEcommerce = $prices['projectType']['ecommerce'];
+    }
 
     /**
      * @return mixed
@@ -210,5 +235,56 @@ private $email;
         $this->email = $email;
     }
 
-}
+    /**
+     * @return mixed
+     */
+    public function getPricePage()
+    {
+        return $this->pricePage;
+    }
 
+    /**
+     * @param mixed $pricePage
+     */
+    public function setPricePage($pricePage)
+    {
+        $this->pricePage = $pricePage;
+    }
+
+
+    /**
+     * @return mixed
+     */
+    public function getEstimation()
+    {
+        return $this->estimation;
+    }
+
+    /**
+     * @param mixed $estimation
+     */
+    public function setEstimation($estimation)
+    {
+        $this->estimation = $estimation;
+    }
+
+
+    public function calculPrice($webDesign)
+
+    {
+        if ($webDesign == true) {
+            $this->estimation = $this->estimation + $this->priceWebDesign;
+
+
+            if ($this->projectType == 'site web') {
+                $this->estimation = $this->estimation + $this->priceSiteWeb;
+            } elseif ($this->projectType == 'extranet') {
+                $this->estimation = $this->estimation + $this->priceExtranet;
+            } elseif ($this->projectType == 'ecommerce') {
+                $this->estimation = $this->estimation + $this->priceEcommerce;
+            }
+
+        }
+            return $this->estimation;
+    }
+}

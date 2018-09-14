@@ -1,90 +1,163 @@
+// import 'quote.css';
+
 class QuoteForm extends React.Component {
+
+    showFilds = (props) => {
+        let fieldElement = null;
+
+        // switch (props.display)
+
+
+        return (
+            <div>
+                <label htmlFor="">{props.label}</label>
+
+            </div>
+        );
+
+    };
+
+
+    // constructor(props){
+    //     super(props);
+    //     this.state = {
+    //         displays : [
+    //             {style: none},
+    //             {style: block}
+    //         ]
+    //     }
+
+
+    // person = (props) => {
+    //     return (
+    //         <div>
+    //             <p>I am {props.name} and my {props.id}</p>
+    //             <p>{props.children}</p>
+    //         </div>
+    //     )
+    // }
+
+    state = {
+        div1Shown: false,
+    }
+
+    projectNameHandler = (onChange) => {
+        if (name == 'Site Web') {
+
+        }
+        ;
+        if (name == 'Extranet/Intranet' && name == 'Application Web' && name == 'Application Mobile') {
+
+        }
+        ;
+        if (name == 'Site Web') {
+
+        }
+        ;
+
+    }
+
+    showEmailHandler = () => {
+        console.log('le button a ete clique');
+        // const style = {
+        //     display: 'block',
+        // };
+        // return
+        // this.style.display;
+        this.setState({
+            div1Shown: true,
+        });
+
+    }
+
+
     render() {
+        const style = {
+            display: 'none',
+        };
+
         return (<div className="App">
             <h1>Formulaire de devis en ligne Karudev</h1>
 
-        <label htmlFor="projectType">Type de project</label>
+            <label htmlFor="projectType">Type de project</label>
 
-        <select name="projectType">
-            <option value="extranet">Extranet/Intranets</option>
-            <option value="commerce">E-commerce</option>
-            <option selected value="sitew">Site Web</option>
-        <option value="appliw">Application Web</option>
-        <option value="applim">Application Mobile</option>
-        </select>
-
-
-        <fieldset>
-        <legend>Choisir vos option supplementaires</legend>
+            <select name="projectType">
+                <option value="extranet">Extranet/Intranets</option>
+                <option value="commerce">E-commerce</option>
+                <option value="sitew">Site Web</option>
+                <option value="appliw">Application Web</option>
+                <option value="applim">Application Mobile</option>
+            </select>
 
 
-        <input type="checkbox" id="scales" name="feature"
-        value="scales"/>
-            <label htmlFor="scales">Webdesign sur mesure</label>
+            <fieldset>
+                <legend>Choisir vos option supplementaires</legend>
 
 
-        </fieldset>
+                <input type="checkbox" name="webDesign"/>
+                <label htmlFor="webDesign">Webdesign sur mesure</label>
 
-        <fieldset>
-        <legend>Details importants</legend>
-
-        <label htmlFor="height">Nombre de pages:</label>
-        <input className="small" type="number" id="height" name="height"
-        step="1"/>
-            <span className="validity"></span>
-
-
-            <label htmlFor="eyes">Nombres des modules sur mesure supplimentaire :</label>
-        <input className="small" type="number" id="eyes" name="eyes"/>
-            <span className="validity"></span>
 
             </fieldset>
 
             <fieldset>
-            <legend>Choisir :</legend>
+                <legend>Details importants</legend>
+
+                <label htmlFor="numberOfPages">Nombre de pages:</label>
+                <input type="number" name="numberOfPages"/>
+                <label htmlFor="numberOfModules">Nombres des modules sur mesure supplimentaire :</label>
+                <input type="number" name="numberOfModules"/>
 
 
-        <input type="checkbox" id="scales" name="feature"
-        value="scales" checked/>
-        <label htmlFor="scales">Hebergement du site et DNS genere par Karudev</label>
+            </fieldset>
+
+            <fieldset>
+                <legend>Choisir :</legend>
 
 
-        <input type="checkbox" id="horns" name="feature"
-        value="horns"/>
-            <label htmlFor="horns">Statistique de frequentation</label>
+                <input type="checkbox" name="websiteHosting"/>
+                <label htmlFor="websiteHosting">Hebergement du site et DNS genere par Karudev</label>
 
 
-        <input type="checkbox" id="claws" name="feature"
-        value="claws"/>
-            <label htmlFor="claws">Module de referencement</label>
+                <input type="checkbox" name="attendanceStatistic"/>
+                <label htmlFor="attendanceStatistic">Statistique de frequentation</label>
 
 
-        <input type="checkbox" id="claws" name="feature"
-        value="claws"/>
-            <label htmlFor="claws">Formulaire de contact et map</label>
+                <input type="checkbox" name="referencingModule"/>
+                <label htmlFor="referencingModule">Module de referencement</label>
 
 
-        </fieldset>
+                <input type="checkbox" name="contactForm"/>
+                <label htmlFor="contactForm">Formulaire de contact et map</label>
 
-        <form>
-        <label>
-        Name:
-    <input type="text" name="name"/>
-            </label>
-            <label>
-            Tel:
-    <input type="text" name="name"/>
-            </label>
-            <label>
-            Email:
-    <input type="email" name="name"/>
-            </label>
-            <input type="submit" value="Envoyez"/>
+
+            </fieldset>
+
+            <form className="div1Shown">
+                <div style={style}>
+                    <label>
+                        Nom/Compagnie:
+                        <input type="text" name="companyName"/>
+                    </label>
+                    <label>
+                        Tel:
+                        <input type="text" name="mobile"/>
+                    </label>
+                    <label>
+                        Email:
+                        <input type="email" name="email"/>
+                    </label>
+                </div>
+                <button onClick={this.showEmailHandler}>Envoyez</button>
             </form>
 
-            </div>);
+
+        </div>);
     }
 }
 
 
 ReactDOM.render(<QuoteForm/>, document.getElementById('root'));
+
+
+//style={{display: this.state.div1Shown ? 'block' : 'none' }}

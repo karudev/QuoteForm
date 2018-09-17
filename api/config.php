@@ -1,7 +1,7 @@
 <?php
 
 $prices = array(
-    "webDesign" => 1000,
+    "webdesign" => 1000,
     "page" => 100,
     "module" => 1000,
     "projectType" => array(

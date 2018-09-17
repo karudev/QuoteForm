@@ -1,0 +1,15 @@
+# This file is auto-generated during the composer install
+parameters:
+    database_host: db
+    database_port: 3306
+    database_name: QuoteForm
+    database_user: root
+    database_password: XXXX
+    mailer_transport: smtp
+    mailer_host: ssl0.ovh.net
+    mailer_user: dev@karudev-informatique.fr
+    mailer_password: developpeur
+    mailer_port: 587
+    secret: ThisTokenIsNotSoSecretChangeIt
+    version: v1.0.9
+    mailer_app: noreply@karudev-informatique.fr

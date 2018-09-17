@@ -10,10 +10,13 @@ require '/var/www/html/api/config.php';
 class Quote
 
 {
+    const WEBSITE_PROJECT_TYPE = 1;
+    const EXTRANET_PROJECT_TYPE = 2;
+    const ECOMMERCE_PROJECT_TYPE = 3;
 
     private $projectType;
 
-    private $webDesign;
+    private $webdesign;
 
     private $numberOfPages;
 
@@ -51,7 +54,7 @@ class Quote
     public function Quote($prices)
     {
         $this->pricePage = $prices['page'];
-        $this->priceWebDesign = $prices['webDesign'];
+        $this->priceWebDesign = $prices['webdesign'];
         $this->priceModule = $prices['module'];
         $this->priceSiteWeb = $prices['projectType']['site web'];
         $this->priceExtranet = $prices['projectType']['extranet'];
@@ -77,17 +80,17 @@ class Quote
     /**
      * @return mixed
      */
-    public function getWebDesign()
+    public function getWebdesign()
     {
-        return $this->webDesign;
+        return $this->webdesign;
     }
 
     /**
-     * @param mixed $webDesign
+     * @param mixed $webdesign
      */
-    public function setWebDesign($webDesign)
+    public function setWebdesign($webdesign)
     {
-        $this->webDesign = $webDesign;
+        $this->webdesign = $webdesign;
     }
 
     /**
@@ -273,21 +276,23 @@ class Quote
 
     {
 
-        if ($this->projectType == 'site web') {
+        if ($this->projectType == self::WEBSITE_PROJECT_TYPE) {
             $this->estimation = $this->estimation + $this->priceSiteWeb;
-        } elseif ($this->projectType == 'extranet') {
+        } elseif ($this->projectType == self::EXTRANET_PROJECT_TYPE) {
             $this->estimation = $this->estimation + $this->priceExtranet;
-        } elseif ($this->projectType == 'ecommerce') {
+        } elseif ($this->projectType == self::ECOMMERCE_PROJECT_TYPE) {
             $this->estimation = $this->estimation + $this->priceEcommerce;
         }
-        if ($this->webDesign == true) {
+        if ($this->webdesign == true) {
             $this->estimation = $this->estimation + $this->priceWebDesign;
         }
-
         if ($this->numberOfPages > 0) {
             $this->estimation = $this->estimation + ($this->numberOfPages * $this->pricePage);
         }
-
+        $this->estimation = array(
+            'minAmount' => $this->estimation - 1000,
+            'maxAmount' => $this->estimation + 2000,
+        );
         return $this->estimation;
 
     }

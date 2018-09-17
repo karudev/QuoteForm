@@ -1,6 +1,8 @@
 <?php
-require __DIR__.'/classes/Quote.php';
-require __DIR__.'/config.php';
+require __DIR__ . '/classes/Quote.php';
+require __DIR__ . '/config.php';
+//ini_set("SMTP", "aspmx.l.google.com");
+//ini_set('smtp_port',25);
 /**
  * Created by PhpStorm.
  * User: Utilisateur
@@ -9,14 +11,83 @@ require __DIR__.'/config.php';
  */
 
 
+$projecttype = $_POST['projectType'];
+$webdesign = (bool)$_POST['webdesign'];
+$numberofpages = (int)$_POST['numberOfPages'];
+$numberofmodules = (int)$_POST['numberOfModules'];
+$websitehosting = (bool)$_POST['websiteHosting'];
+$attendancestatistic = (bool)$_POST['attendanceStatistic'];
+$referencingmodule = (bool)$_POST['referencingModule'];
+$contactform = (bool)$_POST['contactForm'];
+$companyname = $_POST['companyName'];
+$mobile = $_POST['mobile'];
+$email = $_POST['email'];
+
+
 $quote = new Quote($prices);
+$quote->setWebdesign($webdesign);
+$quote->setNumberOfPages($numberofpages);
+$quote->setWebsiteHosting($websitehosting);
+$quote->setAttendanceStatistic($attendancestatistic);
+$quote->setReferencingModule($referencingmodule);
+$quote->setContactForm($contactform);
+$quote->setCompanyName($companyname);
+$quote->setMobile($mobile);
 
-$quote->setWebDesign(false);
+$errors = array(
+    'projet' => "Veuillez renseigner un type de projet",
+    'email' => 'cette email est incorrect'
+);
 
-$quote->setNumberOfPages(5);
-$quote->setProjectType('site web');
+if (!empty($projecttype)) {
+    $quote->setProjectType($projecttype);
+} else {
+    echo $errors['projet'];
+}
 
-echo 'type de projet :'.$quote->getProjectType();
-echo'<br>';
-echo 'estimation : '.$quote->calculPrice();
+if (!empty($email)) {
+    if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $quote->setEmail($email);
+    } else {
+        echo $errors['email'];
+    }
+} else {
+    echo $errors['email'] = "Veuillez renseigner un email";
+
+}
+
+$amount = $quote->calculPrice();
+header('Content-type: application/json');
+$estimation = array(
+    'minAmount' => $amount['minAmount'],
+    'maxAmount' => $amount['maxAmount']
+);
+
+echo json_encode($estimation);
+
 echo '<br>';
+echo "Type de projet : " . $projecttype;
+echo '<br>';
+echo "Webdesign sur mesure : " . $webdesign;
+echo '<br>';
+echo "Nombre de pages : " . $numberofpages;
+echo '<br>';
+echo "Nombre de modules sur mesure supplémentaire : " . $numberofmodules;
+echo '<br>';
+echo "Hébergement du site et DNS géneré par Karudev : " . $websitehosting;
+echo '<br>';
+echo "Statistique de frequentation : " . $attendancestatistic;
+echo '<br>';
+echo "Module de référencement : " . $referencingmodule;
+echo '<br>';
+echo "Formulaire de contact : " . $contactform;
+echo '<br>';
+echo "Société/Nom: " . $companyname;
+echo '<br>';
+echo "Tel : " . $mobile;
+echo '<br>';
+echo "Email : " . $email;
+
+
+
+

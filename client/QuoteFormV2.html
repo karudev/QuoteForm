@@ -1,0 +1,86 @@
+
+
+
+
+
+
+
+<h1>Formulaire de devis en ligne Karudev</h1>
+
+<form className="div1Shown">
+
+    <label htmlFor="projectType">Type de project</label>
+
+    <select onChange={this.onChangeProjectType} name="projectType">
+        <option value="1">Extranet/Intranets</option>
+        <option value="2">E-commerce</option>
+        <option value="3">Site Web</option>
+        <option value="4">Application Web</option>
+        <option value="5">Application Mobile</option>
+    </select>
+
+
+    <fieldset style={{ display : (this.state.projectTypeValue == 3 ? "none" : "block") }}>
+    <legend>Choisir vos option supplementaires</legend>
+
+
+    <input type="checkbox" name="webDesign"/>
+    <label htmlFor="webDesign">Webdesign sur mesure</label>
+
+
+    </fieldset>
+
+    <fieldset>
+        <legend>Details importants</legend>
+
+        <label htmlFor="numberOfPages">Nombre de pages:</label>
+        <input type="number" name="numberOfPages"/>
+        <label htmlFor="numberOfModules">Nombres des modules sur mesure supplimentaire :</label>
+        <input type="number" name="numberOfModules"/>
+
+
+    </fieldset>
+
+    <fieldset>
+        <legend>Choisir :</legend>
+
+
+        <input type="checkbox" name="websiteHosting"/>
+        <label htmlFor="websiteHosting">Hebergement du site et DNS genere par Karudev</label>
+
+
+        <input type="checkbox" name="attendanceStatistic"/>
+        <label htmlFor="attendanceStatistic">Statistique de frequentation</label>
+
+
+        <input type="checkbox" name="referencingModule"/>
+        <label htmlFor="referencingModule">Module de referencement</label>
+
+
+        <input type="checkbox" name="contactForm"/>
+        <label htmlFor="contactForm">Formulaire de contact et map</label>
+
+
+    </fieldset>
+
+
+    <div style={{ display : (this.state.submitted ? "block" : "none") }}>
+    <label>
+        Nom/Compagnie:
+        <input type="text" name="companyName"/>
+    </label>
+    <label>
+        Tel:
+        <input type="text" name="mobile"/>
+    </label>
+    <label>
+        Email:
+        <input type="email" name="email"/>
+    </label>
+    </div>
+    <button onClick={this.showEmailHandler}>Envoyez</button>
+</form>
+
+
+
+

@@ -2,30 +2,29 @@
 
 class QuoteForm extends React.Component {
 
-    showFilds = (props) => {
-        let fieldElement = null;
-
-        // switch (props.display)
-
-
-        return (
-            <div>
-                <label htmlFor="">{props.label}</label>
-
-            </div>
-        );
-
-    };
-
-
-    // constructor(props){
+    //
+    // constructor(props) {
     //     super(props);
     //     this.state = {
-    //         displays : [
-    //             {style: none},
-    //             {style: block}
-    //         ]
-    //     }
+    //         submitted: false,
+    //         projectTypeValue: null
+    //     };
+    // }
+    //
+    // showFilds = (props) => {
+    //     let fieldElement = null;
+    //
+    //     // switch (props.display)
+    //
+    //
+    //     return (
+    //         <div>
+    //             <label htmlFor="">{props.label}</label>
+    //
+    //         </div>
+    //     );
+    //
+    // };
 
 
     // person = (props) => {
@@ -37,114 +36,157 @@ class QuoteForm extends React.Component {
     //     )
     // }
 
-    state = {
-        div1Shown: false,
-    }
+    // state = {
+    //     div1Shown: false,
+    // }
+    //
+    // projectNameHandler = (onChange) => {
+    //     if (name == 'Site Web') {
+    //
+    //     }
+    //     ;
+    //     if (name == 'Extranet/Intranet' && name == 'Application Web' && name == 'Application Mobile') {
+    //
+    //     }
+    //     ;
+    //     if (name == 'Site Web') {
+    //
+    //     }
+    //     ;
+    //
+    // }
 
-    projectNameHandler = (onChange) => {
-        if (name == 'Site Web') {
-
-        }
-        ;
-        if (name == 'Extranet/Intranet' && name == 'Application Web' && name == 'Application Mobile') {
-
-        }
-        ;
-        if (name == 'Site Web') {
-
-        }
-        ;
-
-    }
-
-    showEmailHandler = () => {
-        console.log('le button a ete clique');
-        return
-        (<div>
-           Hi
-        </div>);
-
-    };
+    // showEmailHandler = (e) => {
+    //
+    //     e.preventDefault();
+    //
+    //     this.setState({submitted: true});
+    //
+    // };
+    //
+    // onChangeProjectType = (event) => {
+    //
+    //     //console.log(event.target.value);
+    //     this.setState({projectTypeValue : event.target.value})
+    // }
 
 
     render() {
-        const style = {
-            display: 'none',
-        };
-        const style1 = {
-                 display: 'block'
-        };
 
         return (<div className="App">
-            <h1>Formulaire de devis en ligne Karudev</h1>
 
-            <label htmlFor="projectType">Type de project</label>
+            <div className="container">
+                <div className="py-5 text-center">
+                </div>
 
-            <select name="projectType">
-                <option value="extranet">Extranet/Intranets</option>
-                <option value="commerce">E-commerce</option>
-                <option value="sitew">Site Web</option>
-                <option value="appliw">Application Web</option>
-                <option value="applim">Application Mobile</option>
-            </select>
+                <div className="row">
+                    <div className="col-md-12 order-md-1">
+                        <form className="needs-validation" noValidate="">
+                            <div className="row">
+                                <div className="col-md-12 mb-3">
+                                    <label htmlFor="country">Type de project</label>
+                                    <select className="custom-select d-block w-100" name="projectType" id="country" required="true">
+                                        <option value="">Choisir...</option>
+                                        <option value="1">Extranet/Intranets</option>
+                                        <option value="2">E-commerce</option>
+                                        <option value="3">Site Web</option>
+                                        <option value="4">Application Mobile</option>
+                                        <option value="5">Application Web</option>
+                                    </select>
+                                </div>
+                                <div className="col-md-12 text-center">
+                                    <div className="custom-control custom-checkbox">
+                                        <input type="checkbox" name="webdesign" className="custom-control-input" id="web-design"/>
+                                        <label className="custom-control-label" htmlFor="web-design">Web design sur
+                                            mesure</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr className="mb-4"/>
 
+                            <div className="row">
+                                <div className="col-md-6 mb-3">
+                                    <label>Nombre de pages:</label>
+                                    <input type="number" name="numberOfPages"  className="form-control" placeholder=""
+                                           required=""/>
+                                </div>
+                                <div className="col-md-6 mb-3">
+                                    <label>Nombres des modules sur mesure supplimentaire :</label>
+                                    <input type="number" name="numberOfModules" className="form-control" placeholder=""
+                                           required=""/>
+                                </div>
+                            </div>
 
-            <fieldset>
-                <legend>Choisir vos option supplementaires</legend>
-
-
-                <input type="checkbox" name="webDesign"/>
-                <label htmlFor="webDesign">Webdesign sur mesure</label>
-
-
-            </fieldset>
-
-            <fieldset>
-                <legend>Details importants</legend>
-
-                <label htmlFor="numberOfPages">Nombre de pages:</label>
-                <input type="number" name="numberOfPages"/>
-                <label htmlFor="numberOfModules">Nombres des modules sur mesure supplimentaire :</label>
-                <input type="number" name="numberOfModules"/>
-
-
-            </fieldset>
-
-            <fieldset>
-                <legend>Choisir :</legend>
-
-
-                <input type="checkbox" name="websiteHosting"/>
-                <label htmlFor="websiteHosting">Hebergement du site et DNS genere par Karudev</label>
-
-
-                <input type="checkbox" name="attendanceStatistic"/>
-                <label htmlFor="attendanceStatistic">Statistique de frequentation</label>
-
-
-                <input type="checkbox" name="referencingModule"/>
-                <label htmlFor="referencingModule">Module de referencement</label>
+                            <hr className="mb-4"/>
 
 
-                <input type="checkbox" name="contactForm"/>
-                <label htmlFor="contactForm">Formulaire de contact et map</label>
+                            <div className="custom-control custom-checkbox">
+                                <input type="checkbox" name="websiteHosting" className="custom-control-input" id="heber"/>
+                                <label className="custom-control-label" htmlFor="heber">Hebergement du site et DNS
+                                    genere par Karudev</label>
+                            </div>
+                            <div className="custom-control custom-checkbox">
+                                <input type="checkbox" name="attendanceStatistic" className="custom-control-input" id="stat"/>
+                                <label className="custom-control-label" htmlFor="stat">Statistique de
+                                    frequentation</label>
+                            </div>
+
+                            <div className="custom-control custom-checkbox">
+                                <input type="checkbox" name="referencingModule" className="custom-control-input" id="mod"/>
+                                <label className="custom-control-label" htmlFor="mod">Module de
+                                    referencement</label>
+                            </div>
+                            <div className="custom-control custom-checkbox">
+                                <input type="checkbox" name="contactForm" className="custom-control-input" id="map-contact"/>
+                                <label className="custom-control-label" htmlFor="map-contact">Formulaire de contact
+                                    et
+                                    map</label>
+                            </div>
 
 
-            </fieldset>
+                            <hr className="mb-4"/>
+                            <div>
+                                <h4 className="mb-3">Informations de contact</h4>
 
-            <form >
+                                <div className="row">
+                                    <div className="col-md-6 mb-3">
+                                        <label htmlFor="companyName">Nom/Compagnie :</label>
+                                        <input type="text" name="companyName" className="form-control" id="companyName" placeholder=""
+                                               required=""/>
+                                    </div>
+                                </div>
+                                <div className="row">
+                                    <div className="col-md-6 mb-3">
+                                        <label htmlFor="email">Email :</label>
+                                        <input type="email" name="email" className="form-control" id="email" placeholder=""
+                                               required="true"/>
+                                    </div>
+                                    <div className="col-md-6 mb-3">
+                                        <label htmlFor="mobile">Tel :</label>
+                                        <input type="telephone"  name="mobile" className="form-control" id="mobile" placeholder=""
+                                               required=""/>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr className="mb-4"/>
+                            <button className="btn btn-warning btn-lg btn-block" type="submit">Estimez votre project
+                            </button>
+                        </form>
+                    </div>
+                </div>
 
-                <button onClick={this.showEmailHandler}>Envoyez</button>
-            </form>
+                <footer className="my-5 pt-5 text-muted text-center text-small">
+
+                </footer>
+            </div>
 
 
         </div>);
     }
+
+
 }
 
 
 ReactDOM.render(<QuoteForm/>, document.getElementById('root'));
 
-
-//style={{display: this.state.div1Shown ? 'block' : 'none' }}
-//style={style}

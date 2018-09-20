@@ -2,73 +2,29 @@
 
 class QuoteForm extends React.Component {
 
-    //
-    // constructor(props) {
-    //     super(props);
-    //     this.state = {
-    //         submitted: false,
-    //         projectTypeValue: null
-    //     };
-    // }
-    //
-    // showFilds = (props) => {
-    //     let fieldElement = null;
-    //
-    //     // switch (props.display)
-    //
-    //
-    //     return (
-    //         <div>
-    //             <label htmlFor="">{props.label}</label>
-    //
-    //         </div>
-    //     );
-    //
-    // };
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            submitted: false,
+            projectTypeValue: null
+        };
+    }
 
 
-    // person = (props) => {
-    //     return (
-    //         <div>
-    //             <p>I am {props.name} and my {props.id}</p>
-    //             <p>{props.children}</p>
-    //         </div>
-    //     )
-    // }
+    showEmailHandler = (e) => {
 
-    // state = {
-    //     div1Shown: false,
-    // }
-    //
-    // projectNameHandler = (onChange) => {
-    //     if (name == 'Site Web') {
-    //
-    //     }
-    //     ;
-    //     if (name == 'Extranet/Intranet' && name == 'Application Web' && name == 'Application Mobile') {
-    //
-    //     }
-    //     ;
-    //     if (name == 'Site Web') {
-    //
-    //     }
-    //     ;
-    //
-    // }
+        e.preventDefault();
 
-    // showEmailHandler = (e) => {
-    //
-    //     e.preventDefault();
-    //
-    //     this.setState({submitted: true});
-    //
-    // };
-    //
-    // onChangeProjectType = (event) => {
-    //
-    //     //console.log(event.target.value);
-    //     this.setState({projectTypeValue : event.target.value})
-    // }
+        this.setState({submitted: true});
+
+    };
+
+    onChangeProjectType = (event) => {
+
+        console.log(event.target.value);
+        this.setState({projectTypeValue : event.target.value})
+    };
 
 
     render() {
@@ -145,7 +101,7 @@ class QuoteForm extends React.Component {
 
 
                             <hr className="mb-4"/>
-                            <div>
+                            <div style={{ display : (this.state.submitted ? "block" : "none") }}>
                                 <h4 className="mb-3">Informations de contact</h4>
 
                                 <div className="row">
@@ -169,7 +125,7 @@ class QuoteForm extends React.Component {
                                 </div>
                             </div>
                             <hr className="mb-4"/>
-                            <button className="btn btn-warning btn-lg btn-block" type="submit">Estimez votre project
+                            <button onClick={this.showEmailHandler} className="btn btn-warning btn-lg btn-block" type="submit">Estimez votre project
                             </button>
                         </form>
                     </div>

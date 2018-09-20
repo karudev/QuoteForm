@@ -315,26 +315,6 @@ class Quote
     }
 
 
-    public function changeValue($webdesign,$attendanceStatistic,$referencingModule,$contactForm,$websiteHosting){
-
-       if($webdesign == true ){
-           $this->setWebdesign('oui');
-       }
-        if($attendanceStatistic == true ){
-            $this->setAttendanceStatistic('oui');
-        }
-        if($referencingModule == true ){
-            $this->setReferencingModule(  'oui');
-        }
-        if($contactForm == true ){
-            $this->setContactForm( 'oui');
-        }
-        if($websiteHosting == true ){
-            $this->setWebsiteHosting('oui');
-        }
-
-    }
-
     public function calculPrice()
 
     {

@@ -1,39 +1,56 @@
 <?php
 $projectType = $quote->getProjectType();
-$numberOfPages = $quote->getNumberOfPages() | number_format (2,',',' ');
+$numberOfPages = $quote->getNumberOfPages();
 $webdesign = $quote->getWebdesign();
-$numberOfModules = $quote->getNumberOfModules() | number_format (2,',',' ');
+$numberOfModules = $quote->getNumberOfModules();
 $attendanceStatistic = $quote->getAttendanceStatistic();
 $referencingModule = $quote->getReferencingModule();
 $contactForm = $quote->getContactForm();
 $companyName = $quote->getCompanyName();
 $websiteHosting = $quote->getWebsiteHosting();
 $estimation = $quote->getEstimation();
-$minAmount = $estimation['minAmount']| number_format (2,',',' ');
-$maxAmount = $estimation['maxAmount']| number_format (2,',',' ');
+$minAmount = $estimation['minAmount'];
+$maxAmount = $estimation['maxAmount'];
+$maxAmount = number_format ($maxAmount,2,',',' ');
+$minAmount = number_format ($minAmount,2,',',' ');
 
 
-if ($webdesign == true) {
+if ($webdesign == 1) {
     $webdesign = 'oui';
 }
-if ($attendanceStatistic == true) {
+else{
+    $webdesign = 'non';
+}
+if ($attendanceStatistic == 1) {
     $attendanceStatistic = 'oui';
 }
-if ($referencingModule == true) {
+else{
+    $attendanceStatistic = 'non';
+}
+if ($referencingModule == 1) {
     $referencingModule = 'oui';
 }
-if ($contactForm == true) {
+else{
+    $referencingModule = 'non';
+}
+if ($contactForm == 1) {
     $contactForm = 'oui';
 }
-if ($websiteHosting == true) {
+else{
+    $contactForm = 'non';
+}
+if ($websiteHosting == 1) {
     $websiteHosting = 'oui';
+}
+else{
+    $websiteHosting = 'non';
 }
 
 if ($projectType == 1) {
     $projectType = 'site web';
-    $body = "<p>Bonjour, $companyName</p>
+    $body = "<p>Bonjour $companyName,</p>
 <p>
-Vous trouverez, votre estimation :
+Vous trouverez votre estimation :
 <ul>
     <li>
 Type de projet : $projectType
@@ -60,10 +77,11 @@ Hébergement du site et DNS généré par Karudev : $websiteHosting
     </li>
 </ul>
 </p>
-La fourchette de prix est estimée entre <b> $minAmount € </b>  et <b>$maxAmount € </b>
+La fourchette de prix de votre projet est estimée entre <b> $minAmount € </b>  et <b>$maxAmount € </b>.
+<p>Notre directeur technique prendra contact avec vous dans un délais de 24h maxinmum.</p>
 
 <p>Cordialement,<p>
- <p>L'équipe karudev informatique</p>
+ <p>L'équipe Karudev Informatique</p>
  
 <p>
 <img src='http://karudev-informatique.fr/wp-content/uploads/2018/09/Carte-de-visite-dolyveen.png' alt=\"logo\" width='232px' height='150px' />
@@ -73,9 +91,9 @@ La fourchette de prix est estimée entre <b> $minAmount € </b>  et <b>$maxAmou
 ";
 } elseif ($projectType == 2) {
     $projectType = 'extranet/intranet';
-    $body = "<p>Bonjour, $companyName</p>
+    $body = "<p>Bonjour $companyName,</p>
 <p>
-Vous trouverez, votre estimation :
+Vous trouverez votre estimation :
 <ul>
     <li>
 Type de projet : $projectType
@@ -91,10 +109,11 @@ Hébergement du site et DNS généré par Karudev : $websiteHosting
     </li>
 </ul>
 </p>
-La fourchette de prix est estimée entre <b> $minAmount € </b>  et <b>$maxAmount € </b>
+La fourchette de prix de votre projet est estimée entre <b> $minAmount € </b>  et <b>$maxAmount € </b>.
+<p>Notre directeur technique prendra contact avec vous dans un délais de 24h maxinmum.</p>
 
 <p>Cordialement,<p>
- <p>L'équipe karudev informatique</p>
+ <p>L'équipe Karudev Informatique</p>
  
 <p>
 <img src='http://karudev-informatique.fr/wp-content/uploads/2018/09/Carte-de-visite-dolyveen.png' alt=\"logo\" width='232px' height='150px' />
@@ -104,9 +123,9 @@ La fourchette de prix est estimée entre <b> $minAmount € </b>  et <b>$maxAmou
 ";
 } elseif ($projectType == 3) {
     $projectType = 'e-commerce';
-    $body = "<p>Bonjour, $companyName</p>
+    $body = "<p>Bonjour $companyName,</p>
 <p>
-Vous trouverez, votre estimation :
+Vous trouverez votre estimation :
 <ul>
     <li>
 Type de projet : $projectType
@@ -130,10 +149,10 @@ Hébergement du site et DNS généré par Karudev : $websiteHosting
     </li>
 </ul>
 </p>
-La fourchette de prix est estimée entre <b> $minAmount € </b>  et <b>$maxAmount € </b>
-
+La fourchette de prix de votre projet est estimée entre <b> $minAmount € </b>  et <b>$maxAmount € </b>.
+<p>Notre directeur technique prendra contact avec vous dans un délais de 24h maxinmum.</p>
 <p>Cordialement,<p>
- <p>L'équipe karudev informatique</p>
+ <p>L'équipe Karudev Informatique</p>
  
 <p>
 <img src='http://karudev-informatique.fr/wp-content/uploads/2018/09/Carte-de-visite-dolyveen.png' alt=\"logo\" width='232px' height='150px' />
@@ -143,9 +162,9 @@ La fourchette de prix est estimée entre <b> $minAmount € </b>  et <b>$maxAmou
 ";
 } elseif ($projectType == 4) {
     $projectType = 'application mobile';
-    $body = "<p>Bonjour, $companyName</p>
+    $body = "<p>Bonjour $companyName,</p>
 <p>
-Vous trouverez, votre estimation :
+Vous trouverez votre estimation :
 <ul>
     <li>
 Type de projet : $projectType
@@ -161,10 +180,10 @@ Formulaire de contact : $contactForm
     </li>
 </ul>
 </p>
-La fourchette de prix est estimée entre <b> $minAmount € </b>  et <b>$maxAmount € </b>
-
+La fourchette de prix de votre projet est estimée entre <b> $minAmount € </b>  et <b>$maxAmount € </b>.
+<p>Notre directeur technique prendra contact avec vous dans un délais de 24h maxinmum.</p>
 <p>Cordialement,<p>
- <p>L'équipe karudev informatique</p>
+ <p>L'équipe Karudev Informatique</p>
  
 <p>
 <img src='http://karudev-informatique.fr/wp-content/uploads/2018/09/Carte-de-visite-dolyveen.png' alt=\"logo\" width='232px' height='150px' />
@@ -174,9 +193,9 @@ La fourchette de prix est estimée entre <b> $minAmount € </b>  et <b>$maxAmou
 ";
 } elseif ($projectType == 5) {
     $projectType = 'application web';
-    $body = "<p>Bonjour, $companyName</p>
+    $body = "<p>Bonjour $companyName,</p>
 <p>
-Vous trouverez, votre estimation :
+Vous trouverez votre estimation :
 <ul>
     <li>
 Type de projet : $projectType
@@ -193,10 +212,10 @@ Hébergement du site et DNS généré par Karudev : $websiteHosting
     </li>
 </ul>
 </p>
-La fourchette de prix est estimée entre <b> $minAmount € </b>  et <b>$maxAmount € </b>
-
+La fourchette de prix de votre projet est estimée entre <b> $minAmount € </b>  et <b>$maxAmount € </b>.
+<p>Notre directeur technique prendra contact avec vous dans un délais de 24h maxinmum.</p>
 <p>Cordialement,<p>
- <p>L'équipe karudev informatique</p>
+ <p>L'équipe Karudev Informatique</p>
  
 <p>
 <img src='http://karudev-informatique.fr/wp-content/uploads/2018/09/Carte-de-visite-dolyveen.png' alt=\"logo\" width='232px' height='150px' />

@@ -332,7 +332,7 @@ class Quote
         elseif($this->projectType == self::MOBILEAPPLICATION_PROJECT_TYPE){
             $this->estimation = $this->estimation + $this->priceMobileApplication;
         }
-        if ($this->webdesign == true) {
+        if ($this->webdesign == 1) {
             $this->estimation = $this->estimation + $this->priceWebDesign;
         }
         if ($this->numberOfPages > 0) {

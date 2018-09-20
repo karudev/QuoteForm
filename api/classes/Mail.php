@@ -13,7 +13,7 @@ class Mail
             ->setPassword('developpeur');
         $mailer = new Swift_Mailer($transport);
 
-        $message = (new Swift_Message('Karudev-informatique, votre estimation'))
+        $message = (new Swift_Message('Karudev Informatique-votre estimation'))
             ->setFrom(['s.renault@karudev-informatique.fr'])
             ->setTo([$quote->getEmail()])
             ->setBody($html, 'text/html');

@@ -12,3 +12,8 @@ $prices = array(
         "application web" => 7000,
     )
 );
+
+define("SMTP_ADDRESS",null);
+define("SMTP_PORT",null);
+define("SMTP_USERNAME",null);
+define("SMTP_PASSWORD",null);

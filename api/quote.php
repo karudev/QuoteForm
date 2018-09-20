@@ -14,13 +14,13 @@ require __DIR__. '/classes/Mail.php';
 
 
 $projecttype = $_POST['projectType'];
-$webdesign = (bool)$_POST['webdesign'];
+$webdesign = (int)$_POST['webdesign'];
 $numberofpages = (int)$_POST['numberOfPages'];
 $numberofmodules = (int)$_POST['numberOfModules'];
-$websitehosting = (bool)$_POST['websiteHosting'];
-$attendancestatistic = (bool)$_POST['attendanceStatistic'];
-$referencingmodule = (bool)$_POST['referencingModule'];
-$contactform = (bool)$_POST['contactForm'];
+$websitehosting = (int)$_POST['websiteHosting'];
+$attendancestatistic = (int)$_POST['attendanceStatistic'];
+$referencingmodule = (int)$_POST['referencingModule'];
+$contactform = (int)$_POST['contactForm'];
 $companyname = $_POST['companyName'];
 $mobile = $_POST['mobile'];
 $email = $_POST['email'];
@@ -68,7 +68,7 @@ $estimation = array(
 );
 echo json_encode($estimation);
 
-$mail = new Mail($quote);
+$mail = new Mail($quote, SMTP_ADDRESS, SMTP_PORT, SMTP_USERNAME, SMTP_PASSWORD);
 $mail->send($quote);
 
 echo '<br>';

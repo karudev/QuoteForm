@@ -90,6 +90,7 @@ class QuoteForm extends React.Component {
                                     <label className="custom-control-label" htmlFor="heber">Hébergement du site et DNS
                                         généré par Karudev</label>
                                 </div>
+                                
                                 <div style={{display: ((this.state.projectTypeValue == 1 ||this.state.projectTypeValue == 4 ||this.state.projectTypeValue == 5) ? "none" : "block")}} className="custom-control custom-checkbox">
                                     <input type="checkbox" name="attendanceStatistic" className="custom-control-input"
                                            id="stat"/>

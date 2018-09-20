@@ -1,6 +1,8 @@
 <?php
 require __DIR__ . '/classes/Quote.php';
 require __DIR__ . '/config.php';
+require __DIR__ . '/vendor/autoload.php';
+require __DIR__. '/classes/Mail.php';
 //ini_set("SMTP", "aspmx.l.google.com");
 //ini_set('smtp_port',25);
 /**
@@ -27,6 +29,7 @@ $email = $_POST['email'];
 $quote = new Quote($prices);
 $quote->setWebdesign($webdesign);
 $quote->setNumberOfPages($numberofpages);
+$quote->setNumberOfModules($numberofmodules);
 $quote->setWebsiteHosting($websitehosting);
 $quote->setAttendanceStatistic($attendancestatistic);
 $quote->setReferencingModule($referencingmodule);
@@ -57,13 +60,16 @@ if (!empty($email)) {
 }
 
 $amount = $quote->calculPrice();
+
 header('Content-type: application/json');
 $estimation = array(
     'minAmount' => $amount['minAmount'],
     'maxAmount' => $amount['maxAmount']
 );
-
 echo json_encode($estimation);
+
+$mail = new Mail($quote);
+$mail->send($quote);
 
 echo '<br>';
 echo "Type de projet : " . $projecttype;
@@ -87,6 +93,9 @@ echo '<br>';
 echo "Tel : " . $mobile;
 echo '<br>';
 echo "Email : " . $email;
+echo '<br>';
+
+
 
 
 

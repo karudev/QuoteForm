@@ -8,5 +8,7 @@ $prices = array(
         "site web" => 3000,
         "extranet" => 10000,
         "ecommerce" => 5000,
+        "application mobile" => 6000,
+        "application web" => 7000,
     )
 );

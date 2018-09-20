@@ -5,7 +5,8 @@
  * Date: 14/09/2018
  * Time: 13:30
  */
-require '/var/www/html/api/config.php';
+
+
 
 class Quote
 
@@ -13,6 +14,9 @@ class Quote
     const WEBSITE_PROJECT_TYPE = 1;
     const EXTRANET_PROJECT_TYPE = 2;
     const ECOMMERCE_PROJECT_TYPE = 3;
+    const MOBILEAPPLICATION_PROJECT_TYPE = 4;
+    const WEBAPPLICATION_PROJECT_TYPE = 5;
+
 
     private $projectType;
 
@@ -48,8 +52,11 @@ class Quote
 
     private $priceEcommerce;
 
-    private $estimation;
+    private $priceWebApplication;
 
+    private $priceMobileApplication;
+
+    private $estimation;
 
     public function Quote($prices)
     {
@@ -59,6 +66,10 @@ class Quote
         $this->priceSiteWeb = $prices['projectType']['site web'];
         $this->priceExtranet = $prices['projectType']['extranet'];
         $this->priceEcommerce = $prices['projectType']['ecommerce'];
+        $this->priceWebApplication = $prices['projectType']['application web'];
+        $this->priceMobileApplication = $prices['projectType']['application mobile'];
+
+
     }
 
     /**
@@ -271,6 +282,58 @@ class Quote
         $this->estimation = $estimation;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getPriceWebApplication()
+    {
+        return $this->priceWebApplication;
+    }
+
+    /**
+     * @param mixed $priceWebApplication
+     */
+    public function setPriceWebApplication($priceWebApplication)
+    {
+        $this->priceWebApplication = $priceWebApplication;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPriceMobileApplication()
+    {
+        return $this->priceMobileApplication;
+    }
+
+    /**
+     * @param mixed $priceMobileApplication
+     */
+    public function setPriceMobileApplication($priceMobileApplication)
+    {
+        $this->priceMobileApplication = $priceMobileApplication;
+    }
+
+
+    public function changeValue($webdesign,$attendanceStatistic,$referencingModule,$contactForm,$websiteHosting){
+
+       if($webdesign == true ){
+           $this->setWebdesign('oui');
+       }
+        if($attendanceStatistic == true ){
+            $this->setAttendanceStatistic('oui');
+        }
+        if($referencingModule == true ){
+            $this->setReferencingModule(  'oui');
+        }
+        if($contactForm == true ){
+            $this->setContactForm( 'oui');
+        }
+        if($websiteHosting == true ){
+            $this->setWebsiteHosting('oui');
+        }
+
+    }
 
     public function calculPrice()
 
@@ -282,6 +345,12 @@ class Quote
             $this->estimation = $this->estimation + $this->priceExtranet;
         } elseif ($this->projectType == self::ECOMMERCE_PROJECT_TYPE) {
             $this->estimation = $this->estimation + $this->priceEcommerce;
+        }
+        elseif ($this->projectType == self::WEBAPPLICATION_PROJECT_TYPE){
+            $this->estimation = $this->estimation + $this->priceWebApplication;
+        }
+        elseif($this->projectType == self::MOBILEAPPLICATION_PROJECT_TYPE){
+            $this->estimation = $this->estimation + $this->priceMobileApplication;
         }
         if ($this->webdesign == true) {
             $this->estimation = $this->estimation + $this->priceWebDesign;

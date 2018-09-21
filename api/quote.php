@@ -1,16 +1,10 @@
 <?php
+
+require __DIR__. '/../../../../wp-config.php';
 require __DIR__ . '/classes/Quote.php';
 require __DIR__ . '/config.php';
 require __DIR__ . '/vendor/autoload.php';
 require __DIR__. '/classes/Mail.php';
-//ini_set("SMTP", "aspmx.l.google.com");
-//ini_set('smtp_port',25);
-/**
- * Created by PhpStorm.
- * User: Utilisateur
- * Date: 14/09/2018
- * Time: 13:30
- */
 
 
 $projecttype = $_POST['projectType'];
@@ -70,7 +64,7 @@ echo json_encode($estimation);
 
 $mail = new Mail($quote, SMTP_ADDRESS, SMTP_PORT, SMTP_USERNAME, SMTP_PASSWORD);
 $mail->send($quote);
-//
+
 //echo '<br>';
 //echo "Type de projet : " . $projecttype;
 //echo '<br>';
@@ -94,9 +88,9 @@ $mail->send($quote);
 //echo '<br>';
 //echo "Email : " . $email;
 //echo '<br>';
-
-
-
+//
+//
+//
 
 
 

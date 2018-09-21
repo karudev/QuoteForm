@@ -7,7 +7,6 @@
  */
 
 
-
 class Quote
 
 {
@@ -46,6 +45,14 @@ class Quote
 
     private $priceModule;
 
+    private $priceAttendancestatistic;
+
+    private $priceReferencingModule;
+
+    private $priceContactForm;
+
+    private $priceWebsiteHosting;
+
     private $priceSiteWeb;
 
     private $priceExtranet;
@@ -63,6 +70,10 @@ class Quote
         $this->pricePage = $prices['page'];
         $this->priceWebDesign = $prices['webdesign'];
         $this->priceModule = $prices['module'];
+        $this->priceAttendancestatistic = $prices['statistique de frequentation'];
+        $this->priceReferencingModule = $prices['module de referencement'];
+        $this->priceContactForm = $prices['formulaire de contact'];
+        $this->priceWebsiteHosting = $prices['hebergement'];
         $this->priceSiteWeb = $prices['projectType']['site web'];
         $this->priceExtranet = $prices['projectType']['extranet'];
         $this->priceEcommerce = $prices['projectType']['ecommerce'];
@@ -314,6 +325,70 @@ class Quote
         $this->priceMobileApplication = $priceMobileApplication;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getPriceAttendancestatistic()
+    {
+        return $this->priceAttendancestatistic;
+    }
+
+    /**
+     * @param mixed $priceAttendancestatistic
+     */
+    public function setPriceAttendancestatistic($priceAttendancestatistic)
+    {
+        $this->priceAttendancestatistic = $priceAttendancestatistic;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPriceReferencingModule()
+    {
+        return $this->priceReferencingModule;
+    }
+
+    /**
+     * @param mixed $priceReferencingModule
+     */
+    public function setPriceReferencingModule($priceReferencingModule)
+    {
+        $this->priceReferencingModule = $priceReferencingModule;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPriceContactForm()
+    {
+        return $this->priceContactForm;
+    }
+
+    /**
+     * @param mixed $priceContactForm
+     */
+    public function setPriceContactForm($priceContactForm)
+    {
+        $this->priceContactForm = $priceContactForm;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPriceWebsiteHosting()
+    {
+        return $this->priceWebsiteHosting;
+    }
+
+    /**
+     * @param mixed $priceWebsiteHosting
+     */
+    public function setPriceWebsiteHosting($priceWebsiteHosting)
+    {
+        $this->priceWebsiteHosting = $priceWebsiteHosting;
+    }
+
 
     public function calculPrice()
 
@@ -325,17 +400,27 @@ class Quote
             $this->estimation = $this->estimation + $this->priceExtranet;
         } elseif ($this->projectType == self::ECOMMERCE_PROJECT_TYPE) {
             $this->estimation = $this->estimation + $this->priceEcommerce;
-        }
-        elseif ($this->projectType == self::WEBAPPLICATION_PROJECT_TYPE){
+        } elseif ($this->projectType == self::WEBAPPLICATION_PROJECT_TYPE) {
             $this->estimation = $this->estimation + $this->priceWebApplication;
-        }
-        elseif($this->projectType == self::MOBILEAPPLICATION_PROJECT_TYPE){
+        } elseif ($this->projectType == self::MOBILEAPPLICATION_PROJECT_TYPE) {
             $this->estimation = $this->estimation + $this->priceMobileApplication;
         }
         if ($this->webdesign == 1) {
             $this->estimation = $this->estimation + $this->priceWebDesign;
         }
-        if($this->numberOfModules > 0){
+        if ($this->attendanceStatistic == 1) {
+            $this->estimation = $this->estimation + $this->priceAttendancestatistic;
+        }
+        if ($this->referencingModule == 1) {
+            $this->estimation = $this->estimation + $this->priceReferencingModule;
+        }
+        if ($this->contactForm == 1) {
+            $this->estimation = $this->estimation + $this->priceContactForm;
+        }
+        if ($this->websiteHosting == 1) {
+            $this->estimation = $this->estimation + $this->priceWebsiteHosting;
+        }
+        if ($this->numberOfModules > 0) {
             $this->estimation = $this->estimation + $this->numberOfModules * $this->priceModule;
         }
         if ($this->numberOfPages > 0) {

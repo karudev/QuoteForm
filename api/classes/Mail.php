@@ -13,7 +13,8 @@ class Mail
         $mailer = new Swift_Mailer($transport);
 
         $message = (new Swift_Message('Karudev Informatique : Votre estimation'))
-            ->setFrom(['d.renault@karudev-informatique.fr'])
+            ->setFrom([SENDER])
+            ->setCc([SENDER])
             ->setTo([$quote->getEmail()])
             ->setBody($html, 'text/html');
         $mailer->send($message);

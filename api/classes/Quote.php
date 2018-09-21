@@ -335,6 +335,9 @@ class Quote
         if ($this->webdesign == 1) {
             $this->estimation = $this->estimation + $this->priceWebDesign;
         }
+        if($this->numberOfModules > 0){
+            $this->estimation = $this->estimation + $this->numberOfModules * $this->priceModule;
+        }
         if ($this->numberOfPages > 0) {
             $this->estimation = $this->estimation + ($this->numberOfPages * $this->pricePage);
         }

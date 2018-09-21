@@ -84,8 +84,6 @@ class Quote
 
     private $ourLocal;
 
-    private $yourLocal;
-
     private $teleworking;
 
     private $priceHonoraryRate;
@@ -97,6 +95,12 @@ class Quote
     private $secondCoefficient;
 
     private $thirdCoefficient;
+
+    private $fourthCoefficient;
+
+    private $fifthCoefficient;
+
+    private $sixthCoefficient;
 
 
     public function Quote($prices)
@@ -115,6 +119,13 @@ class Quote
         $this->priceEcommerce = $prices['projectType']['ecommerce'];
         $this->priceWebApplication = $prices['projectType']['application web'];
         $this->priceMobileApplication = $prices['projectType']['application mobile'];
+        $this->firstCoefficient = $prices['coefficient']['1'];
+        $this->secondCoefficient = $prices['coefficient']['2'];
+        $this->thirdCoefficient = $prices['coefficient']['3'];
+        $this->fourthCoefficient = $prices['coefficient']['4'];
+        $this->fifthCoefficient = $prices['coefficient']['5'];
+        $this->sixthCoefficient = $prices['coefficient']['6'];
+
 
     }
 
@@ -428,22 +439,6 @@ class Quote
     /**
      * @return mixed
      */
-    public function getNumberOFHours()
-    {
-        return $this->numberOFHours;
-    }
-
-    /**
-     * @param mixed $numberOFHours
-     */
-    public function setNumberOFHours($numberOFHours)
-    {
-        $this->numberOFHours = $numberOFHours;
-    }
-
-    /**
-     * @return mixed
-     */
     public function getNumberOFDays()
     {
         return $this->numberOFDays;
@@ -487,22 +482,6 @@ class Quote
     public function setOurLocal($ourLocal)
     {
         $this->ourLocal = $ourLocal;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getYourLocal()
-    {
-        return $this->yourLocal;
-    }
-
-    /**
-     * @param mixed $yourLocal
-     */
-    public function setYourLocal($yourLocal)
-    {
-        $this->yourLocal = $yourLocal;
     }
 
     /**
@@ -635,9 +614,75 @@ class Quote
     }
 
 
+    /**
+     * @return mixed
+     */
+    public function getFourthCoefficient()
+    {
+        return $this->fourthCoefficient;
+    }
+
+    /**
+     * @param mixed $fourthCoefficient
+     */
+    public function setFourthCoefficient($fourthCoefficient)
+    {
+        $this->fourthCoefficient = $fourthCoefficient;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getFifthCoefficient()
+    {
+        return $this->fifthCoefficient;
+    }
+
+    /**
+     * @param mixed $fifthCoefficient
+     */
+    public function setFifthCoefficient($fifthCoefficient)
+    {
+        $this->fifthCoefficient = $fifthCoefficient;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSixthCoefficient()
+    {
+        return $this->sixthCoefficient;
+    }
+
+    /**
+     * @param mixed $sixthCoefficient
+     */
+    public function setSixthCoefficient($sixthCoefficient)
+    {
+        $this->sixthCoefficient = $sixthCoefficient;
+    }
+    /**
+     * @return mixed
+     */
+    public function getNumberOFHours()
+    {
+        return $this->numberOFHours;
+    }
+
+    /**
+     * @param mixed $numberOFHours
+     */
+    public function setNumberOFHours($numberOFHours)
+    {
+        $this->numberOFHours = $numberOFHours;
+    }
+
+
     public function calculPrice()
 
     {
+        $subtraction = 1000;
+        $addition = 2000;
 
         if ($this->projectType == self::WEBSITE_PROJECT_TYPE) {
             $this->estimation = $this->estimation + $this->priceSiteWeb;
@@ -649,7 +694,46 @@ class Quote
             $this->estimation = $this->estimation + $this->priceWebApplication;
         } elseif ($this->projectType == self::MOBILEAPPLICATION_PROJECT_TYPE) {
             $this->estimation = $this->estimation + $this->priceMobileApplication;
+        } elseif ($this->projectType == self::MISSION_PROJECT_TYPE) {
+            $subtraction = 0;
+            $addition = 0;
+            if ($this->numberOFDays > 0) {
+                $this->estimation = $this->estimation + ($this->numberOFDays * $this->priceDailyRate);
+            }
+            if ($this->teleworking == 1) {
+                $this->estimation = $this->estimation * $this->sixthCoefficient;
+            }
+            if ($this->workforce == self::MICRO_BUSINESS_WORKFORCE) {
+                $this->estimation = $this->estimation * $this->firstCoefficient;
+            } elseif ($this->workforce == self::TPE_BUSINESS_WORKFORCE) {
+                $this->estimation = $this->estimation * $this->thirdCoefficient;
+            } elseif ($this->workforce == self::PME_BUSINESS_WORKFORCE) {
+                $this->estimation = $this->estimation * $this->fourthCoefficient;
+            } elseif ($this->workforce == self::BIG_BUSINESS_WORKFORCE) {
+                $this->estimation = $this->estimation * $this->fifthCoefficient;
+            }
+        } elseif ($this->projectType == self::ADVICETRAINING_PROJECT_TYPE) {
+            $subtraction = 0;
+            $addition = 0;
+            if ($this->numberOfHours > 0) {
+                $this->estimation = $this->estimation + ($this->numberOfHours * $this->priceHonoraryRate);
+            }
+            if ($this->ourLocal == 1) {
+                $this->estimation = $this->estimation * $this->firstCoefficient;
+            } elseif ($this->ourLocal == 0) {
+                $this->estimation = $this->estimation * $this->secondCoefficient;
+            }
+            if ($this->workforce == self::MICRO_BUSINESS_WORKFORCE) {
+                $this->estimation = $this->estimation * $this->firstCoefficient;
+            } elseif ($this->workforce == self::TPE_BUSINESS_WORKFORCE) {
+                $this->estimation = $this->estimation * $this->thirdCoefficient;
+            } elseif ($this->workforce == self::PME_BUSINESS_WORKFORCE) {
+                $this->estimation = $this->estimation * $this->fourthCoefficient;
+            } elseif ($this->workforce == self::BIG_BUSINESS_WORKFORCE) {
+                $this->estimation = $this->estimation * $this->fifthCoefficient;
+            }
         }
+
         if ($this->webdesign == 1) {
             $this->estimation = $this->estimation + $this->priceWebDesign;
         }
@@ -671,9 +755,10 @@ class Quote
         if ($this->numberOfPages > 0) {
             $this->estimation = $this->estimation + ($this->numberOfPages * $this->pricePage);
         }
+
         $this->estimation = array(
-            'minAmount' => $this->estimation - 1000,
-            'maxAmount' => $this->estimation + 2000,
+            'minAmount' => $this->estimation - $subtraction,
+            'maxAmount' => $this->estimation + $addition,
         );
         return $this->estimation;
 

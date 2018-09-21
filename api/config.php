@@ -19,16 +19,16 @@ define("EXTRANET_PROJECT_TYPE_PRICE", "10000");
 define("ECOMMERCE_PROJECT_TYPE_PRICE", "5000");
 define("MOBILEAPPLICATION_PROJECT_TYPE_PRICE", "6000");
 define("WEBAPPLICATION_PROJECT_TYPE_PRICE", "7000");
-define("ADVICETRAINING_PROJECT_TYPE_PRICE", "2000");
-define("MISSION_PROJECT_TYPE_PRICE", "2500");
-define("ADVICETRAINING_PROJECT_TYPE_PRICE", "4500");
-define("MISSION_PROJECT_TYPE_PRICE", "1500");
+
 
 /**Coefficient*/
 
-define("FIRSTCOEFFICIENT", "1,2");
-define("SECONDCOEFFICIENT", "1.3");
-define("THIRDCOEFFICIENT", "1.5");
+define("FIRSTCOEFFICIENT", "1");
+define("SECONDCOEFFICIENT", "1.1");
+define("THIRDCOEFFICIENT", "1.2");
+define("FOURTHCOEFFICIENT", "1.3");
+define("FIFTHCOEFFICIENT", "1.5");
+define("SIXTHCOEFFICIENT", "-0.20");
 
 $prices = array(
     "webdesign" => WEBDESIGN_PRICE,
@@ -46,13 +46,14 @@ $prices = array(
         "ecommerce" => ECOMMERCE_PROJECT_TYPE_PRICE,
         "application mobile" => MOBILEAPPLICATION_PROJECT_TYPE_PRICE,
         "application web" => WEBAPPLICATION_PROJECT_TYPE_PRICE,
-        "conseils/formations" => ADVICETRAINING_PROJECT_TYPE_PRICE,
-        "mission en regie" => MISSION_PROJECT_TYPE_PRICE,
     ),
     "coefficient" => array(
         "1" => FIRSTCOEFFICIENT,
         "2" => SECONDCOEFFICIENT,
         "3" => THIRDCOEFFICIENT,
+        "4" => FOURTHCOEFFICIENT,
+        "5" => FIFTHCOEFFICIENT,
+        "6" => SIXTHCOEFFICIENT,
 
     )
 

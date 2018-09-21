@@ -4,7 +4,7 @@
 require __DIR__ . '/classes/Quote.php';
 require __DIR__ . '/config.php';
 require __DIR__ . '/vendor/autoload.php';
-require __DIR__. '/classes/Mail.php';
+require __DIR__ . '/classes/Mail.php';
 
 
 $projecttype = $_POST['projectType'];
@@ -18,6 +18,11 @@ $contactform = (int)$_POST['contactForm'];
 $companyname = $_POST['companyName'];
 $mobile = $_POST['mobile'];
 $email = $_POST['email'];
+$numberofhours = (int)$_POST['numberOfHours'];
+$numberofdays = (int)$_POST['numberOFDays'];
+$ourlocal = (int)$_POST['ourLocal'];
+$workforce = (int)$_POST['workforce'];
+$teleworking = (int)$_POST['teleworking'];
 
 
 $quote = new Quote($prices);
@@ -30,6 +35,11 @@ $quote->setReferencingModule($referencingmodule);
 $quote->setContactForm($contactform);
 $quote->setCompanyName($companyname);
 $quote->setMobile($mobile);
+$quote->setNumberOFHours($numberofhours);
+$quote->setNumberOFDays($numberofdays);
+$quote->setOurLocal($ourlocal);
+$quote->setWorkforce($workforce);
+$quote->setTeleworking($teleworking);
 
 $errors = array(
     'projet' => "Veuillez renseigner un type de projet",
@@ -65,32 +75,43 @@ echo json_encode($estimation);
 $mail = new Mail($quote, SMTP_ADDRESS, SMTP_PORT, SMTP_USERNAME, SMTP_PASSWORD);
 $mail->send($quote);
 
-//echo '<br>';
-//echo "Type de projet : " . $projecttype;
-//echo '<br>';
-//echo "Webdesign sur mesure : " . $webdesign;
-//echo '<br>';
-//echo "Nombre de pages : " . $numberofpages;
-//echo '<br>';
-//echo "Nombre de modules sur mesure supplémentaire : " . $numberofmodules;
-//echo '<br>';
-//echo "Hébergement du site et DNS géneré par Karudev : " . $websitehosting;
-//echo '<br>';
-//echo "Statistique de frequentation : " . $attendancestatistic;
-//echo '<br>';
-//echo "Module de référencement : " . $referencingmodule;
-//echo '<br>';
-//echo "Formulaire de contact : " . $contactform;
-//echo '<br>';
-//echo "Société/Nom: " . $companyname;
-//echo '<br>';
-//echo "Tel : " . $mobile;
-//echo '<br>';
-//echo "Email : " . $email;
-//echo '<br>';
-//
-//
-//
+echo '<br>';
+echo "Type de projet : " . $projecttype;
+echo '<br>';
+echo "Webdesign sur mesure : " . $webdesign;
+echo '<br>';
+echo "Nombre de pages : " . $numberofpages;
+echo '<br>';
+echo "Nombre de modules sur mesure supplémentaire : " . $numberofmodules;
+echo '<br>';
+echo "Hébergement du site et DNS géneré par Karudev : " . $websitehosting;
+echo '<br>';
+echo "Statistique de frequentation : " . $attendancestatistic;
+echo '<br>';
+echo "Module de référencement : " . $referencingmodule;
+echo '<br>';
+echo "Formulaire de contact : " . $contactform;
+echo '<br>';
+echo "Société/Nom: " . $companyname;
+echo '<br>';
+echo "Tel : " . $mobile;
+echo '<br>';
+echo "Email : " . $email;
+echo '<br>';
+echo "nombre d'heures : " . $numberofhours;
+echo '<br>';
+echo "Dans les locaux de Karudev : " . $ourlocal;
+echo '<br>';
+echo "Effectif : " . $workforce;
+echo '<br>';
+echo "nombres de jours : " . $numberofdays;
+echo '<br>';
+echo "teletravail : " . $teleworking;
+echo '<br>';
+
+
+
+
 
 
 

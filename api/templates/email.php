@@ -78,7 +78,7 @@ Hébergement du site et DNS généré par Karudev : $websiteHosting
 </ul>
 </p>
 La fourchette de prix de votre projet est estimée entre <b> $minAmount € </b>  et <b>$maxAmount € </b>.
-<p>Notre directeur technique prendra contact avec vous dans un délais de 24h maxinmum.</p>
+<p>Notre directeur technique prendra contact avec vous dans un délais de 24h maximum.</p>
 
 <p>Cordialement,<p>
  <p>L'équipe Karudev Informatique</p>
@@ -110,7 +110,7 @@ Hébergement du site et DNS généré par Karudev : $websiteHosting
 </ul>
 </p>
 La fourchette de prix de votre projet est estimée entre <b> $minAmount € </b>  et <b>$maxAmount € </b>.
-<p>Notre directeur technique prendra contact avec vous dans un délais de 24h maxinmum.</p>
+<p>Notre directeur technique prendra contact avec vous dans un délais de 24h maximum.</p>
 
 <p>Cordialement,<p>
  <p>L'équipe Karudev Informatique</p>
@@ -150,7 +150,7 @@ Hébergement du site et DNS généré par Karudev : $websiteHosting
 </ul>
 </p>
 La fourchette de prix de votre projet est estimée entre <b> $minAmount € </b>  et <b>$maxAmount € </b>.
-<p>Notre directeur technique prendra contact avec vous dans un délais de 24h maxinmum.</p>
+<p>Notre directeur technique prendra contact avec vous dans un délais de 24h maximum.</p>
 <p>Cordialement,<p>
  <p>L'équipe Karudev Informatique</p>
  
@@ -181,7 +181,7 @@ Formulaire de contact : $contactForm
 </ul>
 </p>
 La fourchette de prix de votre projet est estimée entre <b> $minAmount € </b>  et <b>$maxAmount € </b>.
-<p>Notre directeur technique prendra contact avec vous dans un délais de 24h maxinmum.</p>
+<p>Notre directeur technique prendra contact avec vous dans un délais de 24h maximum.</p>
 <p>Cordialement,<p>
  <p>L'équipe Karudev Informatique</p>
  
@@ -213,7 +213,7 @@ Hébergement du site et DNS généré par Karudev : $websiteHosting
 </ul>
 </p>
 La fourchette de prix de votre projet est estimée entre <b> $minAmount € </b>  et <b>$maxAmount € </b>.
-<p>Notre directeur technique prendra contact avec vous dans un délais de 24h maxinmum.</p>
+<p>Notre directeur technique prendra contact avec vous dans un délais de 24h maximum.</p>
 <p>Cordialement,<p>
  <p>L'équipe Karudev Informatique</p>
  

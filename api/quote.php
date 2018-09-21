@@ -70,30 +70,30 @@ echo json_encode($estimation);
 
 $mail = new Mail($quote, SMTP_ADDRESS, SMTP_PORT, SMTP_USERNAME, SMTP_PASSWORD);
 $mail->send($quote);
-
-echo '<br>';
-echo "Type de projet : " . $projecttype;
-echo '<br>';
-echo "Webdesign sur mesure : " . $webdesign;
-echo '<br>';
-echo "Nombre de pages : " . $numberofpages;
-echo '<br>';
-echo "Nombre de modules sur mesure supplémentaire : " . $numberofmodules;
-echo '<br>';
-echo "Hébergement du site et DNS géneré par Karudev : " . $websitehosting;
-echo '<br>';
-echo "Statistique de frequentation : " . $attendancestatistic;
-echo '<br>';
-echo "Module de référencement : " . $referencingmodule;
-echo '<br>';
-echo "Formulaire de contact : " . $contactform;
-echo '<br>';
-echo "Société/Nom: " . $companyname;
-echo '<br>';
-echo "Tel : " . $mobile;
-echo '<br>';
-echo "Email : " . $email;
-echo '<br>';
+//
+//echo '<br>';
+//echo "Type de projet : " . $projecttype;
+//echo '<br>';
+//echo "Webdesign sur mesure : " . $webdesign;
+//echo '<br>';
+//echo "Nombre de pages : " . $numberofpages;
+//echo '<br>';
+//echo "Nombre de modules sur mesure supplémentaire : " . $numberofmodules;
+//echo '<br>';
+//echo "Hébergement du site et DNS géneré par Karudev : " . $websitehosting;
+//echo '<br>';
+//echo "Statistique de frequentation : " . $attendancestatistic;
+//echo '<br>';
+//echo "Module de référencement : " . $referencingmodule;
+//echo '<br>';
+//echo "Formulaire de contact : " . $contactform;
+//echo '<br>';
+//echo "Société/Nom: " . $companyname;
+//echo '<br>';
+//echo "Tel : " . $mobile;
+//echo '<br>';
+//echo "Email : " . $email;
+//echo '<br>';
 
 
 

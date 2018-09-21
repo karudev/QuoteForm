@@ -32,13 +32,9 @@ class Login extends Component {
             body : "_username="+username+"&_password="+password
         }).then((response) => response.json())
             .then(function(json){
-                if(json.token) {
-                    console.log(json.token);
-                    that.authService.setToken(json.token);
-                    that.setState({connected: true});
-                }else{
-                    that.setState({message: "Login ou mot de passe incorrect"});
-                }
+                console.log(json);
+                that.setState({message: "Login ou mot de passe incorrect"});
+
             })
 
     }

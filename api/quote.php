@@ -1,6 +1,6 @@
 <?php
 
-require __DIR__. '/../../../../wp-config.php';
+//require __DIR__. '/../../../../wp-config.php';
 require __DIR__ . '/classes/Quote.php';
 require __DIR__ . '/config.php';
 require __DIR__ . '/vendor/autoload.php';

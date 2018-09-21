@@ -59,13 +59,13 @@ Type de projet : $projectType
 Nombre de pages : $numberOfPages
     </li>
     <li>
-webdesign : $webdesign 
+Webdesign sur mesure  : $webdesign 
     </li>
     <li>
 Nombre de modules sur mesure supplémentaire : $numberOfModules
     </li>
     <li>
-Statistique de frequentation : $attendanceStatistic 
+Statistiques de frequentation : $attendanceStatistic 
     </li>
     <li>
     Module de référencement : $referencingModule
@@ -99,7 +99,7 @@ Vous trouverez votre estimation :
 Type de projet : $projectType
     </li>
     <li>
-webdesign : $webdesign 
+Webdesign sur mesure : $webdesign 
     </li>
     <li>
 Nombre de modules sur mesure supplémentaire : $numberOfModules
@@ -131,13 +131,13 @@ Vous trouverez votre estimation :
 Type de projet : $projectType
     </li>
     <li>
-webdesign : $webdesign 
+Webdesign sur mesure : $webdesign 
     </li>
     <li>
 Nombre de modules sur mesure supplémentaire : $numberOfModules
     </li>
     <li>
-Statistique de frequentation : $attendanceStatistic 
+Statistiques de frequentation : $attendanceStatistic 
     </li>
     <li>
     Module de référencement : $referencingModule
@@ -170,7 +170,7 @@ Vous trouverez votre estimation :
 Type de projet : $projectType
     </li>
     <li>
-webdesign : $webdesign 
+Webdesign sur mesure : $webdesign 
     </li>
     <li>
 Nombre de modules sur mesure supplémentaire : $numberOfModules
@@ -202,7 +202,7 @@ Type de projet : $projectType
     </li>
  
     <li>
-webdesign : $webdesign 
+Webdesign sur mesure : $webdesign 
     </li>
     <li>
 Nombre de modules sur mesure supplémentaire : $numberOfModules
